@@ -14,34 +14,41 @@ public class Monster {
     private int CombatLevel;
     private Prize prize;
     private BadConsequence badConsequence;
+    private int levelChangeAgaintsCulstistPlayer;
     
     public Monster(String name, int level, BadConsequence badConsequence, Prize prize){
         this.name = name;
         CombatLevel = level;
         this.badConsequence = badConsequence;
         this.prize = prize;
+        levelChangeAgaintsCulstistPlayer = 0;
     }
     
-    String getName(){
+    public Monster(String name, int level, BadConsequence badConsequence, Prize prize, int lC){
+        this.name = name;
+        CombatLevel = level;
+        this.badConsequence = badConsequence;
+        this.prize = prize;
+        levelChangeAgaintsCulstistPlayer = lC;
+    }
+    
+    public String getName(){
         return name;
     }
     
     // getLevel == getCombatLevel (en diapositivas)
-    int getLevel(){
+    public int getLevel(){
         return CombatLevel;
     }
     
-    Prize getPrize(){
+    public Prize getPrize(){
         return prize;
     }
     
-    BadConsequence getBc(){
+    public BadConsequence getBc(){
         return badConsequence;
     }
-    
-    public String toString(){
-        return "\nName = " + name + "; Combat level = " + Integer.toString(CombatLevel);
-    }
+   
     
     public int getLevelsGained(){
         return prize.getLevels();
@@ -51,4 +58,11 @@ public class Monster {
         return prize.getTreasures();
     }
     
+    public int getCombatLevelAgainstCultistPlayer(){
+        return CombatLevel + levelChangeAgaintsCulstistPlayer;
+    }
+    
+    public String toString(){
+        return "\nName = " + name + "; Combat level = " + Integer.toString(CombatLevel) + "\nPrize: " + prize.toString() + "\nBadConsequence: " + badConsequence.toString();
+    }
 }

@@ -10,5 +10,5 @@ package javanapakalaki;
  * @author selu
  */
 public enum CombatResult {
-    WINGAME, WIN, LOSE
+    WINGAME, WIN, LOSE, LOSEANDCONVERT
 }

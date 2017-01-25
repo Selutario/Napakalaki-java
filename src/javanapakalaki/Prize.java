@@ -18,16 +18,16 @@ public class Prize {
         this.treasures = treasures;
     }
     
-    int getLevels(){
+    public int getLevels(){
         return levels; }
     
-    void setLevels(int l){
+    private void setLevels(int l){
         levels = l; }
     
-    int getTreasures(){
+    public int getTreasures(){
         return treasures; }
     
-    void setTreasures(int t){
+    private void setTreasures(int t){
         treasures = t; }
     
     public String toString(){

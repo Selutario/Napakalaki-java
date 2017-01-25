@@ -10,12 +10,12 @@ import java.util.Random;
  *
  * @author selu
  */
-public class Dice {
-    private static final Dice instance = new Dice();
+public class OldDice {
+    private static final OldDice instance = new OldDice();
     
-    Dice(){}
+    OldDice(){}
     
-    public static Dice getInstance(){
+    public static OldDice getInstance(){
         return instance;
     }
     

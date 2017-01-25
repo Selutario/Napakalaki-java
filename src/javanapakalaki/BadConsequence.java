@@ -11,89 +11,46 @@ import java.util.ArrayList;
  *
  * @author lopezjoseluis
  */
-public class BadConsequence {
+public abstract class BadConsequence {
     public static final int MAXTREASURES = 10;
     
     private String text;
     private int levels;
-    private int nVisibleTreasures;
-    private int nHiddenTreasures;
-    private boolean death; // VIVO = 0, MUERTO = 1
-    private ArrayList<TreasureKind> specificHiddenTreasures = new ArrayList();
-    private ArrayList<TreasureKind> specificVisibleTreasures = new ArrayList();
+    private boolean death;
 
-   public BadConsequence(String text, int levels, int nVisible, int nHidden){
-        text = text;
-        levels = levels;
-        nVisibleTreasures = nVisible;
-        nHiddenTreasures = nHidden;
-        specificHiddenTreasures = new ArrayList();
-        specificVisibleTreasures = new ArrayList();
-        death = false;
-    }
-    
-    public BadConsequence(String text, boolean death){
+   public BadConsequence(String text, int levels){
         this.text = text;
+        this.levels = levels;
         this.death = death;
     }
    
-    public BadConsequence(String text, int levels, ArrayList<TreasureKind> tVisible, 
-            ArrayList<TreasureKind> tHidden){
-        this.text = text;
-        this.death = death;
-        this.levels = levels;
-        this.specificVisibleTreasures = tVisible;
-        this.specificHiddenTreasures = tHidden;
-    }
+    public abstract boolean isEmpty();
     
-    //public BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h){
-        
-    //}
-    
-    public boolean isEmpty(){
-        return (nVisibleTreasures == 0 && nHiddenTreasures == 0 && specificHiddenTreasures.size() == 0 && specificVisibleTreasures.size() == 0);
-    }
-    
-    String getText(){
+    public String getText(){
         return text; 
     }
     
-    int getLevels(){
+    public int getLevels(){
         return levels; 
     }
     
-    int getVisibleTreasures(){
-        return nVisibleTreasures; 
+    public boolean getDeath(){
+        return death;
     }
     
-    int getHiddenTreasures(){
-        return nHiddenTreasures; 
+    protected void setDeath(boolean death){
+        this.death = death;
     }
     
-    boolean getDeath(){
-        return death; 
-    }
+    public abstract void substractVisibleTreasures(Treasure t);
     
-    ArrayList<TreasureKind> getSHTreasures(){
-        return specificHiddenTreasures;
-    }
-    
-    ArrayList<TreasureKind> getSVTreasures(){
-        return specificVisibleTreasures;
-    }
-    
-    public void substractVisibleTreasures(Treasure t){
-        
-    }
-    
-    public void substractHiddenTreasures(Treasure t){
-        
-    }
-    
-    
-    
+    public abstract void substractHiddenTreasures(Treasure t);
+
+    public abstract BadConsequence adjustToFitTreasureLists(ArrayList<Treasure> v, ArrayList<Treasure> h);
+
+    @Override
     public String toString(){
-        return "\nText = " + text + "; levels = " + Integer.toString(levels) + "n Visible Treasures= " + Integer.toString(nVisibleTreasures) + " n Hidden Treasures = " + Integer.toString(nHiddenTreasures) + " death = " + death;
+        return "\nText = " + text + ";\nlevels = " + Integer.toString(levels) + "\nDeath = " + death;
     }
     
  
