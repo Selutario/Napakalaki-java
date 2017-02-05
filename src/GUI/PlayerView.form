@@ -59,7 +59,7 @@
                       <Component id="stealButton" min="-2" pref="128" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="makeVisibleButton" min="-2" pref="126" max="-2" attributes="0"/>
-                      <EmptySpace pref="18" max="32767" attributes="0"/>
+                      <EmptySpace max="32767" attributes="0"/>
                       <Component id="discardVisibleButton" min="-2" pref="104" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="discardAllButton" min="-2" pref="156" max="-2" attributes="0"/>
@@ -377,9 +377,6 @@
           <Font name="Ubuntu" size="15" style="1"/>
         </Property>
         <Property name="text" type="java.lang.String" value="&lt;html&gt;&lt;center&gt;&lt;p&gt;STEAL&lt;/p&gt;&lt;p&gt;TREASURE&lt;/p&gt;&lt;/center&gt;&lt;/html&gt;"/>
-        <Property name="minimumSize" type="java.awt.Dimension" editor="org.netbeans.beaninfo.editors.DimensionEditor">
-          <Dimension value="[89, 48]"/>
-        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="stealButtonActionPerformed"/>
